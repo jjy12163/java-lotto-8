@@ -6,9 +6,9 @@ import lotto.View.InputView;
 public class Application {
     public static void main(String[] args) {
 
-        String rawPurchasePrice = InputView.purchasePrice();
+        Integer price = InputView.purchasePrice();
 
-        LottoController lottoController = new LottoController(rawPurchasePrice);
+        LottoController lottoController = new LottoController(price);
         lottoController.run();
 
     }
