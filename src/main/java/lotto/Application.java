@@ -6,10 +6,12 @@ import lotto.View.InputView;
 public class Application {
     public static void main(String[] args) {
 
-        Integer price = InputView.purchasePrice();
 
-        LottoController lottoController = new LottoController(price);
-        lottoController.run();
+        LottoController lottoController = new LottoController();
+        lottoController.purchaseLotto();
+        lottoController.resultLotto();
+
+
 
     }
 }
