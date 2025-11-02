@@ -19,14 +19,14 @@ public class InputView {
     public static List<Integer> lotteryWinningNum() {
         System.out.println("당첨 번호를 입력해 주세요.");
         String rawLotteryWinningNum = Console.readLine();
-        List<Integer> lotteryWinningNum = new ArrayList<>();
         List<String> SplitNumString = Arrays.asList(rawLotteryWinningNum.trim().split(","));
         return validateLotteryWinningNum(SplitNumString);
     }
 
-    public static String BonusNumber() {
+    public static Integer BonusNumber() {
         System.out.println("보너스 번호를 입력해 주세요.");
-        return Console.readLine();
+        Integer bonusNum = validateBonusNumber(Console.readLine());
+        return bonusNum;
     }
 
     private static Integer validatePurchasePrice(String rawPurchasePrice) {
@@ -76,9 +76,34 @@ public class InputView {
 
 
     private static List<Integer> validateLotteryWinningNum(List<String> SplitNumString) {
-        isStringListSize(SplitNumString);
-        return stringToIntWinningNum(SplitNumString);
+
+        List<Integer> lotteryWinningNum = new ArrayList<>();
+
+        for(String splitNumString : SplitNumString) {
+            lotteryWinningNum.add(WinningNumStringToInt(splitNumString));
+        }
+        return lotteryWinningNum;
     };
+
+    private static Integer WinningNumStringToInt(String number) {
+        try {
+            int winnningNum = Integer.parseInt(number);
+            return winnningNum;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ErrorMessage.LOTTONUM_ERROR.getMessage());
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     private static List<Integer> stringToIntWinningNum(List<String> SplitNumString) {
         Set<Integer> set = new HashSet<>();
@@ -98,34 +123,19 @@ public class InputView {
         return lotteryWinningNum;
     }
 
-    private static void isStringListSize(List<String> SplitNumString) {
-        if(SplitNumString.size() != COUNT) {
-            throw new IllegalArgumentException(ErrorMessage.NOT_SIX_NUM.getMessage());
-        }
-    }
     private static void isInOfLotteryNumRange(int winningNum) {
         if(LotteryNumRange(winningNum)) {
             throw new IllegalArgumentException(ErrorMessage.OUT_OF_LOTTO_RANGE.getMessage());
         }
     }
 
-    private static boolean LotteryNumRange(int num) {
-        if(num < START_INCLUSIVE || num > END_EXCLUSIVE) {
-            return false;
-        }
-        return true;
-    }
 
-    private static Integer WinningNumStringToInt(String number) {
-        isInputEmpty(number);
-        try {
-            int winnningNum = Integer.parseInt(number);
-            return winnningNum;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ErrorMessage.LOTTONUM_ERROR.getMessage());
-        }
-    }
 
+
+    private static Integer validateBonusNumber(String number) {
+
+
+    }
 
 
 }

@@ -7,8 +7,8 @@ public enum ErrorMessage {
     ODD_INPUT("구입 금액은 양의 정수로 입력해 주세요."),
     EXTRA_CHANGE("1000원 단위로 입력해 주세요."),
 
-    NOT_SIX_NUM("숫자는 6개를 입력해 주셔야 합니다."),
     LOTTONUM_ERROR(" 로또 번호는 쉼표(,)로 구분된 숫자로 입력해 주세요."),
+    NOT_SIX_NUM("숫자는 6개를 입력해 주셔야 합니다."),
     DOUBLE_NUM("중복 없이 입력해 주세요."),
     OUT_OF_LOTTO_RANGE("1이상 45이하의 값만 입력해 주세요.");
 
