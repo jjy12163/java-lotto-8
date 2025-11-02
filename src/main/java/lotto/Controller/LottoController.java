@@ -1,6 +1,10 @@
 package lotto.Controller;
 
+import lotto.Model.Lotto;
 import lotto.Model.MyLotto;
+import lotto.View.OutputView;
+
+import java.util.List;
 
 public class LottoController {
 
@@ -15,9 +19,10 @@ public class LottoController {
 
     public void run() {
         int lottoAmount = LottoAmount(price);
-        MyLotto myLotto = new MyLotto(lottoAmount);
-        myLotto.buy();
+        MyLotto myLotto = new MyLotto();
+        List<Lotto> lottos = myLotto.purchase(lottoAmount);
 
+        OutputView.myLottoPrint(lottoAmount, lottos);
     }
 
 
