@@ -10,8 +10,11 @@ public enum ErrorMessage {
     LOTTONUM_ERROR(" 로또 번호는 쉼표(,)로 구분된 숫자로 입력해 주세요."),
     NOT_SIX_NUM("숫자는 6개를 입력해 주셔야 합니다."),
     DOUBLE_NUM("중복 없이 입력해 주세요."),
-    OUT_OF_LOTTO_RANGE("1이상 45이하의 값만 입력해 주세요.");
+    OUT_OF_LOTTO_RANGE("1이상 45이하의 값만 입력해 주세요."),
 
+
+    NOT_BONUS_NUM("보너스 숫자는 숫자로 입력해 주세요."),
+    EXISTNUM_IN_LOTTO("이전 입력값과 중복되지 않은 값을 입력해 주세요.");
 
     private final String message;
 
