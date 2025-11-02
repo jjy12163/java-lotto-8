@@ -22,6 +22,7 @@ public class InputView {
         String rawLotteryWinningNum = Console.readLine();
         List<String> SplitNumString = Arrays.asList(rawLotteryWinningNum.trim().split(","));
         List<Integer> list = validateLotteryWinningNum(SplitNumString);
+//         Collections.sort(list);
         return list;
     }
 
