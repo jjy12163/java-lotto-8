@@ -1,6 +1,6 @@
 package lotto.Model;
 
-import lotto.ResultFormat;
+import lotto.Config.ResultFormat;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static lotto.ResultFormat.*;
+import static lotto.Config.ResultFormat.*;
 
 public class CalculateLottoResult {
 
@@ -33,5 +33,6 @@ public class CalculateLottoResult {
                         Collectors.counting()
                 ));
     }
+
 
 }

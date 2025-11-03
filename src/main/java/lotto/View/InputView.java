@@ -5,8 +5,8 @@ import lotto.ErrorMessage;
 
 import java.util.*;
 
-import static lotto.Config.gameConfig.END_EXCLUSIVE;
-import static lotto.Config.gameConfig.START_INCLUSIVE;
+import static lotto.Config.GameConfig.END_EXCLUSIVE;
+import static lotto.Config.GameConfig.START_INCLUSIVE;
 
 
 public class InputView {
@@ -14,7 +14,8 @@ public class InputView {
     public static Integer purchasePrice() {
         System.out.println("구입금액을 입력해 주세요.");
         String rawPurchasePrice = Console.readLine();
-        return validatePurchasePrice(rawPurchasePrice);
+        validatePurchasePrice(rawPurchasePrice);
+        return Integer.parseInt(rawPurchasePrice);
     }
 
     public static List<Integer> lotteryWinningNum() {
@@ -22,7 +23,6 @@ public class InputView {
         String rawLotteryWinningNum = Console.readLine();
         List<String> SplitNumString = Arrays.asList(rawLotteryWinningNum.trim().split(","));
         List<Integer> list = validateLotteryWinningNum(SplitNumString);
-//         Collections.sort(list);
         return list;
     }
 
@@ -32,7 +32,7 @@ public class InputView {
         return bonusNum;
     }
 
-    private static Integer validatePurchasePrice(String rawPurchasePrice) {
+    private static void validatePurchasePrice(String rawPurchasePrice) {
 
         if (isEmptyInput(rawPurchasePrice)) {
             throw new IllegalArgumentException(ErrorMessage.INPUT_BLANK.getMessage());
@@ -45,8 +45,6 @@ public class InputView {
         if(price % 1000 != 0) {
             throw new IllegalArgumentException(ErrorMessage.EXTRA_CHANGE.getMessage());
         }
-
-        return price;
     }
 
     private static boolean isEmptyInput(String raw) {

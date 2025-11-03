@@ -128,9 +128,16 @@
 - lottoController
 ### [Model]
 - Lotto
-
+- MyLotto
+- LottoResult
+- RandomNumberGenerater
+- CalculateReturnRate
+- CalculateLottoResult
+### [Config]
+- gameConfig
+- ResultFormat
 ### [예외]
-- Exception
+- ErrorMessage
 
 # 기능 구현 목록
 
@@ -152,11 +159,11 @@
       - [x] 정수 범위를 초과한 경우
       - [x] 양의 정수가 아닌 다른 수
       - [x] 로또 번호와 겹치는 값이 들어오는 경우
-- [ ] 출력
+- [x] 출력
 	- [x] 로또 수량과 번호 출력
 	- [x] CalculateLottoResult 호출로 당첨 내역 계산 후 출력
 	- [x] CalculateReturnRate 호출로 수익률 계산 후 출력
-	- [ ] 에러 메시지 출력(형식 : [ERROR] ~~)
+	- [x] 에러 메시지 출력(형식 : [ERROR] ~~)
 - [x] Controller
 	- [x] inputView에게 받은 구입 금액으로 로또 개수 계산
 	- [x] MyLotto 호출해서 로또 개수 전송

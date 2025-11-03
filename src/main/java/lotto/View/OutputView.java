@@ -1,13 +1,16 @@
 package lotto.View;
 
 import lotto.Model.CalculateLottoResult;
-import lotto.Model.CalculateReturnRate;
 import lotto.Model.Lotto;
 import lotto.Model.LottoResult;
-import lotto.ResultFormat;
+import lotto.Config.ResultFormat;
 
+import javax.xml.transform.Result;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
+
+import static lotto.Config.GameConfig.ERROR_FORMAT;
 
 public class OutputView {
     public static void myLottoPrint(Integer lottoAmount, List<Lotto> lottos) {
@@ -29,13 +32,21 @@ public class OutputView {
             totalInput += count * result.getMoney();
         }
         return totalInput;
-
     }
 
-    public static void printInputRate(long price, long totalInput) {
-        CalculateReturnRate calculateReturnRate = new CalculateReturnRate(price, totalInput);
-        double rate = calculateReturnRate.calculate();
-        System.out.printf("수익률은 %.2f%%입니다.\n", rate);
+    public static void printInputRate(long price, long ResultMoney) {
+        if(ResultMoney == 0) {
+            System.out.println("총 수익률은 " + 0 + "%입니다.");
+            return;
+        }
+        double rate = (double) ResultMoney / price * 100.0;
+        DecimalFormat df = new DecimalFormat("0.##");
+        System.out.println("총 수익률은 " + df.format(rate) + "%입니다.");
+    }
+
+    public static void printErrorMessage(String errorMessage) {
+        System.out.println(ERROR_FORMAT + errorMessage);
+
     }
 
     private static List<ResultFormat> ResultFormatList() {

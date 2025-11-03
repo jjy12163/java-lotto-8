@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import static java.util.Arrays.sort;
-import static lotto.Config.gameConfig.*;
+import static lotto.Config.GameConfig.*;
 
 
 public class Lotto {
@@ -20,7 +20,6 @@ public class Lotto {
     }
 
     public List<Integer> getNumbers() {
-        Collections.sort(numbers);
         return numbers;
     }
 

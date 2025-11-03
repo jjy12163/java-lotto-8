@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static lotto.Config.gameConfig.BONUSBALL_CHECKPOINT;
+import static lotto.Config.GameConfig.BONUSBALL_CHECKPOINT;
 import static lotto.Model.RandomNumberGenerater.randomNumber;
 
 public class MyLotto {
