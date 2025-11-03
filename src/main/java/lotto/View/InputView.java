@@ -18,7 +18,7 @@ public class InputView {
     }
 
     public static List<Integer> lotteryWinningNum() {
-        System.out.println("당첨 번호를 입력해 주세요.");
+        System.out.println("\n당첨 번호를 입력해 주세요.");
         String rawLotteryWinningNum = Console.readLine();
         List<String> SplitNumString = Arrays.asList(rawLotteryWinningNum.trim().split(","));
         List<Integer> list = validateLotteryWinningNum(SplitNumString);
@@ -27,7 +27,7 @@ public class InputView {
     }
 
     public static Integer BonusNumber(List<Integer> lotteryWinningNum) {
-        System.out.println("보너스 번호를 입력해 주세요.");
+        System.out.println("\n보너스 번호를 입력해 주세요.");
         Integer bonusNum = validateBonusNumber(Console.readLine(), lotteryWinningNum);
         return bonusNum;
     }

@@ -1,18 +1,22 @@
 package lotto.Controller;
 
-import camp.nextstep.edu.missionutils.Console;
+import lotto.Model.CalculateReturnRate;
 import lotto.Model.Lotto;
 import lotto.Model.LottoResult;
 import lotto.Model.MyLotto;
 import lotto.View.InputView;
 import lotto.View.OutputView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LottoController {
 
     public static final Integer LottoPrice = 1000;
+    public final long price;
+
+    public LottoController(long price) {
+        this.price = price;
+    }
 
     public void run() {
         List<Lotto> lottos = purchaseLotto();
@@ -21,10 +25,8 @@ public class LottoController {
 
     private List<Lotto> purchaseLotto() {
         try {
-            Integer price = InputView.purchasePrice();
             int lottoAmount = LottoAmount(price);
             List<Lotto> lottos = MyLotto.purchase(lottoAmount);
-            OutputView.myLottoPrint(lottoAmount, lottos);
             return lottos;
         } catch (IllegalArgumentException e) {
             System.out.println("e.getMessage() = " + e.getMessage());
@@ -32,10 +34,9 @@ public class LottoController {
         }
     }
 
-    private static int LottoAmount(int price) {
-        return price / LottoPrice;
+    private static int LottoAmount(long price) {
+        return (int) (price / LottoPrice);
     }
-
 
     public void resultLotto(List<Lotto> myLottos) {
         try {
@@ -43,11 +44,16 @@ public class LottoController {
             Integer bonusNumber = InputView.BonusNumber(lotteryWinningNum);
 
             List<LottoResult> resultLottos = MyLotto.resultLottos(myLottos, lotteryWinningNum, bonusNumber);
-            OutputView.resultLottoPrint(resultLottos);
+            long totalInput = OutputView.printResultLottoAndCalculateTotalInput(resultLottos);
+            OutputView.printInputRate(price, totalInput);
+
+
 
         }
         catch (IllegalArgumentException e) {
             resultLotto(myLottos);
         }
     }
+
+
 }

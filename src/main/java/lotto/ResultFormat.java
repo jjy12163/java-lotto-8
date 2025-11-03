@@ -45,6 +45,9 @@ public enum ResultFormat {
     public String getMessage() {
         return message;
     }
+    public int getMoney() {
+        return money;
+    }
 
 
 }
