@@ -26,9 +26,9 @@ public class LottoController {
             List<Lotto> lottos = MyLotto.purchase(lottoAmount);
             OutputView.myLottoPrint(lottoAmount, lottos);
             return lottos;
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("e.getMessage() = " + e.getMessage());
-            purchaseLotto();
+            return purchaseLotto();
         }
     }
 
@@ -45,6 +45,9 @@ public class LottoController {
             List<LottoResult> resultLottos = MyLotto.resultLottos(myLottos, lotteryWinningNum, bonusNumber);
             OutputView.resultLottoPrint(resultLottos);
 
+        }
+        catch (IllegalArgumentException e) {
+            resultLotto(myLottos);
         }
     }
 }
