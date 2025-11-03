@@ -154,17 +154,16 @@
       - [x] 로또 번호와 겹치는 값이 들어오는 경우
 - [ ] 출력
 	- [x] 로또 수량과 번호 출력
-	- [ ] 당첨 내역 출력
-	- [ ] 수익률 출력
+	- [x] CalculateLottoResult 호출로 당첨 내역 계산 후 출력
+	- [ ] CalculateReturnRate 호출로 수익률 계산 후 출력
 	- [ ] 에러 메시지 출력(형식 : [ERROR] ~~)
 - [ ] Controller
 	- [x] inputView에게 받은 구입 금액으로 로또 개수 계산
 	- [x] MyLotto 호출해서 로또 개수 전송
 	- [x] OutputView에게 MyLotto 결과 전송
 	- [x] inputView에게 당첨 번호, 보너스 번호 입력값 받음
-	- [x] MyLotto 호출로 당첨된 숫자 개수 리스트 받음 
-	- [ ] 수익률 계산
-	- [ ] outputView 호출해서 당첨 숫자 개수 리스트, 수익률 전송
+	- [x] MyLotto 호출로 당첨된 숫자 개수 리스트 받음
+	- [ ] outputView 호출
 - [x] MyLotto
   - [x] Lotto 여러 장 생성 및 관리
   - [x] 당첨 번호 오름차순 정렬
@@ -179,4 +178,10 @@
     - [x] 당첨 번호 오름차순 정렬
 - [x] RandomNumberGenerater
 	- [x] 1부터 45까지의 랜덤값 6개 생성
-- [ ] Exception
+- [x] LottoResult
+  - [x] 일치하는 수 개수, bonusBall 일치 여부 기록용 record
+- [x] CalculateLottoResult
+  - [x] 당첨 내역 출력
+- [ ] CalculateReturnRate
+  - [ ] 수익률 계산
+- [x] Exception
