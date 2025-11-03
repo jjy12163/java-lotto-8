@@ -1,8 +1,4 @@
-package lotto;
-
-import lotto.Model.LottoResult;
-
-import java.util.List;
+package lotto.Config;
 
 public enum ResultFormat {
     FIRST(6, 2_000_000_000, "6개 일치 (2,000,000,000원)"),
