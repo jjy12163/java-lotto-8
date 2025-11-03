@@ -26,15 +26,11 @@ public class LottoController {
     }
 
     private List<Lotto> purchaseLotto() {
-        try {
-            int lottoAmount = LottoAmount(price);
-            List<Lotto> lottos = MyLotto.purchase(lottoAmount);
-            myLottoPrint(lottoAmount, lottos);
-            return lottos;
-        } catch (IllegalArgumentException e) {
-            OutputView.printErrorMessage(e.getMessage());
-            return purchaseLotto();
-        }
+        int lottoAmount = LottoAmount(price);
+        List<Lotto> lottos = MyLotto.purchase(lottoAmount);
+        myLottoPrint(lottoAmount, lottos);
+        return lottos;
+
     }
     public void resultLotto(List<Lotto> myLottos) {
         try {

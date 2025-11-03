@@ -6,17 +6,19 @@ import lotto.View.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        long price;
-
-        try{
-            price = InputView.purchasePrice();
-        }
-        catch (IllegalArgumentException e) {
-            OutputView.printErrorMessage(e.getMessage());
-            price = InputView.purchasePrice();
-        }
+        long price = inputPrice();
 
         LottoController lottoController = new LottoController(price);
         lottoController.run();
+    }
+    private static long inputPrice() {
+        while (true) {
+            try {
+                long price = InputView.purchasePrice();
+                return price;
+            } catch (IllegalArgumentException e) {
+                OutputView.printErrorMessage(e.getMessage());
+            }
+        }
     }
 }

@@ -19,7 +19,4 @@ public class MyLottoTest {
         int expect = 3;
         Assertions.assertThat(lottos).hasSize(expect);
     }
-//    @DisplayName("randomNumber가 6개의 숫자를 출력하는지 테스트")
-//    @DisplayName("randomNumber가 1 이상의 숫자를 출력하는지 테스트")
-//    @DisplayName("randomNumber가 45 이하의 숫자를 출력하는지 테스트")
 }

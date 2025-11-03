@@ -54,9 +54,11 @@ public class InputView {
     private static int PurchasePriceStringToInt(String raw) {
         try {
             isValueInRangeOfInt(raw);
-            return Integer.parseInt(raw);
-        } catch (NumberFormatException e) {
+            int num = Integer.parseInt(raw);
+            return num;
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(ErrorMessage.NOT_PURCHASE_NUM.getMessage());
+
         }
     }
     private static void isValueInRangeOfInt(String raw) {
