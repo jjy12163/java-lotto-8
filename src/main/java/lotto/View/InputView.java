@@ -74,10 +74,11 @@ public class InputView {
         List<Integer> lotteryWinningNum = new ArrayList<>();
 
         for(String splitNumString : SplitNumString) {
-            lotteryWinningNum.add(WinningNumStringToInt(splitNumString));
+            lotteryWinningNum.add(WinningNumStringToInt(splitNumString.trim()));
         }
         return lotteryWinningNum;
     };
+
 
     private static Integer WinningNumStringToInt(String number) {
         try {
